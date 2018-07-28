@@ -13,4 +13,15 @@
 * `flake8`: pip3 install flake8
 * `pylint`: pip3 install pylint
 
+## tmux
+### Installation
+```
+make install-tmux
+```
+
+### How to edit configuration
+To edit tmux configuration, you need to modify `tmux/.tmux.conf.local`.
+`tmux/.tmux.conf` is from https://github.com/gpakosz/.tmux.
+
+
 
