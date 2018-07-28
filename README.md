@@ -32,8 +32,22 @@ make install-nvim
 * For the install setup, you should compile somethings for YouCompleteMe.
 
 ### Plugins
-* YouCompleteMe
-
+* 'SirVer/ultisnips':
+* 'honza/vim-snippets'
+* 'scrooloose/nerdtree': a tree explorer plugin for vim
+* 'majutsushi/tagbar': a vim plugin that displays tags in a window
+* 'easymotion/vim-easymotion': a motion plugin for fast navigating a file
+* 'scrooloose/nerdcommenter': a plugin for easy-commenting
+* 'pseewald/nerdtree-tagbar-combined'
+* 'tmhedberg/matchit': extended % matching for HTML, LaTeX, and many other languages
+* 'vim-scripts/indentpython.vim': python indentation
+* 'Valloric/YouCompleteMe': 
+* 'neomake/neomake': 
+* 'nvie/vim-flake8': 
+* 'kien/ctrlp.vim': 
+* 'tpope/vim-fugitive': git integration
+* 'vim-airline/vim-airline': 
+* 'vim-airline/vim-airline-themes':
 
 ### Plugin setup
 #### YouCompleteMe

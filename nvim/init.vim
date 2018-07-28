@@ -1,10 +1,9 @@
 """"""""""""""""""""""""""""
 """" Basic setup
 """"""""""""""""""""""""""""
-"source ~/.vim/bundles.vim
-"source ~/.config/nvim/bundles.vim
 call plug#begin()
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree'    " a tree explorer plugin for vim
 Plug 'majutsushi/tagbar'  " a vim plugin that displays tags in a window
 Plug 'easymotion/vim-easymotion'  " a motion plugin for fast navigating a file
@@ -125,7 +124,7 @@ let g:neomake_open_list = 2
 let NERDTreeWinPos="left" 
 "" ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$'] 				
-nmap <F4> :MundoToggle<cr>
+"nmap <F4> :MundoToggle<cr>
 nmap <F5> :ToggleNERDTreeAndTagbar <cr>
 
 """ TagBar setting
@@ -134,3 +133,14 @@ let g:tagbar_width=30
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
+
+""" ultisnips setting
+" trigger configuration. 
+" Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" if you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
