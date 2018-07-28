@@ -1,8 +1,8 @@
 
-all: install-vim install-tmux install-shell
+all: install-nvim install-tmux install-shell
 
-install-vim:
-	bash bin/install_vim.sh
+install-nvim:
+	bash bin/install_nvim.sh
 
 install-tmux:
 	bash bin/install_tmux.sh

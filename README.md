@@ -15,13 +15,30 @@
 
 ## tmux
 ### Installation
-```
+```bash
 make install-tmux
 ```
 
 ### How to edit configuration
 To edit tmux configuration, you need to modify `tmux/.tmux.conf.local`.
-`tmux/.tmux.conf` is from https://github.com/gpakosz/.tmux.
+The original tmux configuration files are from https://github.com/gpakosz/.tmux.
+
+## neovim
+### Installation
+```bash
+make install-vim
+```
+* For the initial setup, it would take a couple of minutes to install vim plugins.
+* For the install setup, you should compile somethings for YouCompleteMe.
+
+### Plugins
+* YouCompleteMe
 
 
-
+### Plugin setup
+#### YouCompleteMe
+After `make install-vim`, you should compile YouCompleteMe manually. 
+Move `~/.config/nvim/plugged/YouCompleteMe` and type the following:
+```
+python3 install.py
+```
