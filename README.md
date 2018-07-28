@@ -56,3 +56,14 @@ Move `~/.config/nvim/plugged/YouCompleteMe` and type the following:
 ```
 python3 install.py
 ```
+
+
+### Plugin shorcuts
+#### vimfiler
+* Toggle safe mode: gs
+* Create new file: N
+* Delete file: d
+* Rename file: r
+* New directory: K
+* Open file: e
+

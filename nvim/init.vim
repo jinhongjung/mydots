@@ -4,11 +4,13 @@
 call plug#begin()
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree'    " a tree explorer plugin for vim
+"Plug 'scrooloose/nerdtree'    " a tree explorer plugin for vim
+"Plug 'pseewald/nerdtree-tagbar-combined'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
 Plug 'majutsushi/tagbar'  " a vim plugin that displays tags in a window
 Plug 'easymotion/vim-easymotion'  " a motion plugin for fast navigating a file
 Plug 'scrooloose/nerdcommenter'   " a plugin for easy-commenting
-Plug 'pseewald/nerdtree-tagbar-combined'
 Plug 'tmhedberg/matchit'  " extended % matching for HTML, LaTeX, and many other languages
 Plug 'vim-scripts/indentpython.vim'   " python indentation
 Plug 'Valloric/YouCompleteMe'
@@ -119,20 +121,74 @@ let g:airline_powerline_fonts = 0
 call neomake#configure#automake('nrwi')
 let g:neomake_open_list = 2
 
+""" vimfiler setting
+nmap <F4> :VimFilerExplorer <cr>
+
+"autocmd VimEnter * VimFilerExplorer | wincmd p
+autocmd VimEnter * if !argc() | VimFilerExplorer | wincmd p | endif
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_restore_alternate_file = 1
+let g:vimfiler_tree_indentation = 1
+let g:vimfiler_tree_leaf_icon = '¦'
+let g:vimfiler_tree_opened_icon = '▼'
+let g:vimfiler_tree_closed_icon = '▷'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_readonly_file_icon = '*'
+let g:vimfiler_marked_file_icon = '√'
+"let g:vimfiler_preview_action = 'auto_preview'
+let g:vimfiler_ignore_pattern =
+            \ '^\%(\.git\|\.idea\|\.DS_Store\|\.vagrant\|.stversions'
+            \ .'\|node_modules\|.*\.pyc\)$'
+
+if has('mac')
+    let g:vimfiler_quick_look_command =
+                \ '/Applications//Sublime\ Text.app/Contents/MacOS/Sublime\ Text'
+else
+    let g:vimfiler_quick_look_command = 'gloobus-preview'
+endif
+
+call vimfiler#custom#profile('default', 'context', {
+            \ 'explorer' : 1,
+            \ 'winwidth' : 30,
+            \ 'winminwidth' : 30,
+            \ 'toggle' : 1,
+            \ 'columns' : 'type',
+            \ 'auto_expand': 1,
+            \ 'direction' : 'rightbelow',
+            \ 'parent': 0,
+            \ 'explorer_columns' : 'type',
+            \ 'status' : 1,
+            \ 'safe' : 0,
+            \ 'split' : 1,
+            \ 'no_quit' : 1,
+            \ 'force_hide' : 0,
+            \ })
+autocmd FileType vimfiler call s:vimfilerinit()
+autocmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') |
+            \ q | endif
+function! s:vimfilerinit()
+    set nonumber
+    set norelativenumber
+endf
+
+
 """ nerdtree setting
 " put NERDTree in the leftside
-let NERDTreeWinPos="left" 
+"let NERDTreeWinPos="left" 
 "" ignore files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$'] 				
+"let NERDTreeIgnore=['\.pyc$', '\~$'] 				
 "nmap <F4> :MundoToggle<cr>
-nmap <F5> :ToggleNERDTreeAndTagbar <cr>
+"nmap <F5> :ToggleNERDTreeAndTagbar <cr>
 
 """ TagBar setting
-let g:tagbar_left=0
+autocmd VimEnter * TagbarOpen
+let g:tagbar_left=1
 let g:tagbar_width=30
-let g:tagbar_autofocus = 1
+let g:tagbar_autofocus = 0
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
+nmap <F5> :Tagbar <cr>
 
 """ ultisnips setting
 " trigger configuration. 
