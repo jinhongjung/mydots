@@ -26,7 +26,7 @@ The original tmux configuration files are from https://github.com/gpakosz/.tmux.
 ## neovim
 ### Installation
 ```bash
-make install-vim
+make install-nvim
 ```
 * For the initial setup, it would take a couple of minutes to install vim plugins.
 * For the install setup, you should compile somethings for YouCompleteMe.
@@ -37,7 +37,7 @@ make install-vim
 
 ### Plugin setup
 #### YouCompleteMe
-After `make install-vim`, you should compile YouCompleteMe manually. 
+After `make install-nvim`, you should compile YouCompleteMe manually. 
 Move `~/.config/nvim/plugged/YouCompleteMe` and type the following:
 ```
 python3 install.py
