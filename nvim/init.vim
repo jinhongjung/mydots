@@ -22,7 +22,7 @@ Plug 'hdima/python-syntax'
 Plug 'neomake/neomake'
 Plug 'nvie/vim-flake8'
 call plug#end()
-
+filetype plugin indent on
 
 """ encoding detection setting
 set fileencodings=utf-8
@@ -37,7 +37,6 @@ set backspace=indent,eol,start
 set number
 set relativenumber
 syntax on
-filetype plugin indent on
 let python_highlight_all = 1
 
 "" for vim slow issues
@@ -86,6 +85,10 @@ set clipboard=unnamedplus
 
 """ vim spell-checker setting
 " set spell spelllang=en_us
+
+""" key map setting
+nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+
 
 """"""""""""""""""""""""""""
 """" Plugin setup 
