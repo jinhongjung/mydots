@@ -11,15 +11,16 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'majutsushi/tagbar'  " a vim plugin that displays tags in a window
 Plug 'easymotion/vim-easymotion'  " a motion plugin for fast navigating a file
 Plug 'scrooloose/nerdcommenter'   " a plugin for easy-commenting
-Plug 'tmhedberg/matchit'  " extended % matching for HTML, LaTeX, and many other languages
+Plug 'tmhedberg/matchit'  " extended % matching 
 Plug 'vim-scripts/indentpython.vim'   " python indentation
 Plug 'Valloric/YouCompleteMe'
-Plug 'neomake/neomake'
-Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive' " git integration
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'hdima/python-syntax'
+Plug 'neomake/neomake'
+Plug 'nvie/vim-flake8'
 call plug#end()
 
 
@@ -35,6 +36,9 @@ set t_Co=256
 set backspace=indent,eol,start
 set number
 set relativenumber
+syntax on
+filetype plugin indent on
+let python_highlight_all = 1
 
 "" for vim slow issues
 set nocompatible
@@ -119,13 +123,25 @@ let g:airline_powerline_fonts = 0
 
 """ neomake setting
 call neomake#configure#automake('nrwi')
-let g:neomake_open_list = 2
+let g:neomake_open_list = 5
+let g:neomake_python_pep8_exe = 'python3'
+let g:neomake_python_flake8_maker = {
+    \ 'args': ['--ignore=E221,E241,E272,E251,W702,E203,E201,E202', '--format=default'],
+    \ 'errorformat':
+        \ '%E%f:%l: could not compile,%-Z%p^,' .
+        \ '%A%f:%l:%c: %t%n %m,' .
+        \ '%A%f:%l: %t%n %m,' .
+        \ '%-G%.%#',
+    \ }
+let g:neomake_python_enabled_makers = ['flake8']
+
+"let g:neomake_python_enabled_makers = ['pep8']
 
 """ vimfiler setting
 nmap <F4> :VimFilerExplorer <cr>
 
 "autocmd VimEnter * VimFilerExplorer | wincmd p
-autocmd VimEnter * if !argc() | VimFilerExplorer | wincmd p | endif
+autocmd VimEnter * if argc() >= 0 | VimFilerExplorer | wincmd p | endif
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_restore_alternate_file = 1
@@ -199,4 +215,9 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " if you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+""" pymode setting
+"let g:pymode_python = 'python3'
+"let g:pymode_syntax_all = 1
+"let g:pymode_lint = 1
 
