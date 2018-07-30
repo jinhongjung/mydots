@@ -60,8 +60,8 @@ python3 install.py
 
 ### Plugin shortcuts
 #### YouCompleteMe
-* Go to definition: <leader>d
-* Go back: <C-o>
+* Go to definition: `<leader>d`
+* Go back: `<C-o>`
 
 #### vimfiler
 * Toggle safe mode: gs
