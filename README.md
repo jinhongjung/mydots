@@ -28,7 +28,7 @@ The original tmux configuration files are from https://github.com/gpakosz/.tmux.
 ```bash
 make install-nvim
 ```
-* For the initial setup, it would take a couple of minutes to install vim plugins.
+* For the initial setup, it would take a few minutes to install vim plugins.
 * For the install setup, you should compile somethings for YouCompleteMe.
 
 ### Plugins
@@ -58,7 +58,11 @@ python3 install.py
 ```
 
 
-### Plugin shorcuts
+### Plugin shortcuts
+#### YouCompleteMe
+* Go to definition: <leader>d
+* Go back: <C-o>
+
 #### vimfiler
 * Toggle safe mode: gs
 * Create new file: N

@@ -21,6 +21,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'hdima/python-syntax'
 Plug 'neomake/neomake'
 Plug 'nvie/vim-flake8'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 filetype plugin indent on
 
@@ -87,7 +88,9 @@ set clipboard=unnamedplus
 " set spell spelllang=en_us
 
 """ key map setting
-nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+let mapleader="," 
+nnoremap <leader>r :exec '!python3' shellescape(@%, 1)<cr>
+tnoremap <Esc> <C-\><C-n>
 
 
 """"""""""""""""""""""""""""
