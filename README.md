@@ -66,8 +66,11 @@ python3 install.py
 #### vimfiler
 * Toggle safe mode: gs
 * Create new file: N
+* Copy file: c
 * Delete file: d
 * Rename file: r
 * New directory: K
 * Open file: e
 
+#### vim-fugitive
+* https://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/

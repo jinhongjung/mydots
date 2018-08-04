@@ -4,16 +4,21 @@
 call plug#begin()
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
 "Plug 'scrooloose/nerdtree'    " a tree explorer plugin for vim
 "Plug 'pseewald/nerdtree-tagbar-combined'
+
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'majutsushi/tagbar'  " a vim plugin that displays tags in a window
 Plug 'easymotion/vim-easymotion'  " a motion plugin for fast navigating a file
 Plug 'scrooloose/nerdcommenter'   " a plugin for easy-commenting
-Plug 'tmhedberg/matchit'  " extended % matching 
+Plug 'tmhedberg/matchit'  " extended % matching
 Plug 'vim-scripts/indentpython.vim'   " python indentation
 Plug 'Valloric/YouCompleteMe'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'zchee/deoplete-jedi'
+Plug 'ervandew/supertab'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive' " git integration
 Plug 'vim-airline/vim-airline'
@@ -22,6 +27,7 @@ Plug 'hdima/python-syntax'
 Plug 'neomake/neomake'
 Plug 'nvie/vim-flake8'
 Plug 'airblade/vim-gitgutter'
+"Plug 'cjrh/vim-conda'
 call plug#end()
 filetype plugin indent on
 
@@ -88,7 +94,7 @@ set clipboard=unnamedplus
 " set spell spelllang=en_us
 
 """ key map setting
-let mapleader="," 
+"let mapleader="," 
 nnoremap <leader>r :exec '!python3' shellescape(@%, 1)<cr>
 tnoremap <Esc> <C-\><C-n>
 
@@ -98,13 +104,12 @@ tnoremap <Esc> <C-\><C-n>
 """"""""""""""""""""""""""""
 """ YCM setting
 set completeopt-=preview
-
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_of_chars_for_completion = 1 
+let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
 let g:ycm_path_to_python_interpreter='/usr/local/bin/python3'
 let g:ycm_python_binary_path = '/usr/local/bin/python3'
@@ -116,6 +121,17 @@ nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 nnoremap <leader>p :YcmCompleter GetParent<CR>
+
+"" jedi setting
+"autocmd FileType python setlocal completeopt-=preview
+"let g:jedi#completions_enabled = 0
+"let g:pymode_rope = 0
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#auto_vim_configuration = 0
+
+
+""" supertab setting
+
 
 """ NERD commenter setting
 let g:NERDCustomDelimiters = {'tex':{'left': '%'}}
@@ -129,7 +145,7 @@ let g:airline_powerline_fonts = 0
 
 """ neomake setting
 call neomake#configure#automake('nrwi')
-let g:neomake_open_list = 5
+let g:neomake_open_list = 2
 let g:neomake_python_pep8_exe = 'python3'
 let g:neomake_python_flake8_maker = {
     \ 'args': ['--ignore=E221,E241,E272,E251,W702,E203,E201,E202', '--format=default'],
@@ -140,7 +156,6 @@ let g:neomake_python_flake8_maker = {
         \ '%-G%.%#',
     \ }
 let g:neomake_python_enabled_makers = ['flake8']
-
 "let g:neomake_python_enabled_makers = ['pep8']
 
 """ vimfiler setting
@@ -226,4 +241,8 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:pymode_python = 'python3'
 "let g:pymode_syntax_all = 1
 "let g:pymode_lint = 1
+
+
+""" flake8 setting
+let g:flake8_show_quickfix=0  " don't show
 
