@@ -4,7 +4,8 @@
 * `brew`: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 * `git`: brew install git
 * `tmux`: brew install tmux
-* `python`: brew install python #install python3
+* `python`: brew install ~~python #install python3~~
+    - install python 3.6.6 from https://www.python.org/downloads/release/python-366/
 * `neovim`: brew install neovim
 * `zsh`: brew install zsh
 * `oh-my-zsh`: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -29,48 +30,59 @@ The original tmux configuration files are from https://github.com/gpakosz/.tmux.
 make install-nvim
 ```
 * For the initial setup, it would take a few minutes to install vim plugins.
-* For the install setup, you should compile somethings for YouCompleteMe.
 
-### Plugins
-* 'SirVer/ultisnips':
-* 'honza/vim-snippets'
-* 'scrooloose/nerdtree': a tree explorer plugin for vim
-* 'majutsushi/tagbar': a vim plugin that displays tags in a window
-* 'easymotion/vim-easymotion': a motion plugin for fast navigating a file
-* 'scrooloose/nerdcommenter': a plugin for easy-commenting
-* 'pseewald/nerdtree-tagbar-combined'
-* 'tmhedberg/matchit': extended % matching for HTML, LaTeX, and many other languages
-* 'vim-scripts/indentpython.vim': python indentation
-* 'Valloric/YouCompleteMe': 
-* 'neomake/neomake': 
-* 'nvie/vim-flake8': 
-* 'kien/ctrlp.vim': 
-* 'tpope/vim-fugitive': git integration
-* 'vim-airline/vim-airline': 
-* 'vim-airline/vim-airline-themes':
+### Installed Plugins
+* See nvim/init.vim
 
 ### Plugin setup
-#### YouCompleteMe
-After `make install-nvim`, you should compile YouCompleteMe manually. 
-Move `~/.config/nvim/plugged/YouCompleteMe` and type the following:
-```
-python3 install.py
+#### Autocompletion for python
+* The below setting provides a satisfactory performance for autocompletion in python.
+* Tested environment: macos, python 3.6.6
+* Used plugins
+    - Plug 'davidhalter/jedi-vim' " A plugin for autocompletion of python
+    - Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    - Plug 'zchee/deoplete-jedi'
+        - Plugins for supporting asynchronous autocompletion of python
+* pip3 install jedi
+* set up jedi-vim as shown in ~/.config/nvim/init.vim
+```vimrc
+let g:jedi#show_call_signatures_delay = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#server_timeout = 100
+let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
+let g:jedi#max_doc_height = 20
+let g:jedi#auto_close_doc = 1
 ```
 
 
 ### Plugin shortcuts
-#### YouCompleteMe
-* Go to definition: `<leader>d`
-* Go back: `<C-o>`
+#### nerdtree
+* `<leader>v` → find the current file on NerdTree (NerdTreeFind)
 
-#### vimfiler
-* Toggle safe mode: gs
-* Create new file: N
-* Copy file: c
-* Delete file: d
-* Rename file: r
-* New directory: K
-* Open file: e
+#### vim-notes
+* `gf` → move the note on the current link
+* `:ShowTaggedNotes` → show tagged notes
+* `:edit note:something ` → edit a note whose title `something`
+* `<C-s` → search nodes for the following keywords 
+* `vim :RecentNotes` → show recently edited notes
+
+#### jedi-vim
+* `<leader>pk` → open a python document on the current function 
+* `<leader>pr` → rename a variable/function (refactor)
+* `<leader>pu` → show usages on the current function
+* `<leader>pd` → go to the definition
+    - If you want to go back, press `<C-o>`
+
+#### isort
+* `<leader>i` → automatically sort imports used in a python script
+
 
 #### vim-fugitive
 * https://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/
