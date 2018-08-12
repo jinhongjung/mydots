@@ -28,7 +28,8 @@ fi
 
 cp -r nvim ~/.config
 echo "[neovim] start installing neovim plugins"
-nvim +PlugInstall +qall
+#nvim +PlugInstall +qall &> /dev/null
+nvim +'PlugInstall --sync' +qall &> /dev/null < /dev/tty
 echo "[neovim] end neovim configuration"
 
 cp nvim/airline/afterglow.vim ~/.config/nvim/plugged/vim-airline/autoload/airline/themes
