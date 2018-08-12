@@ -59,19 +59,14 @@ set lazyredraw
 set synmaxcol=128
 syntax sync minlines=256
 
-"" display 80 characters line
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-set colorcolumn=80
-
-"" use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
-
-"" unset the 'last search pattern' register by hitting return
-nnoremap <CR> :noh<CR><CR>
+"" display 80 characters line for only python scripts
+set colorcolumn=0
+augroup vimrc_autocmds     " Source vim configuration upon save
+au! 
+    autocmd FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929 
+    autocmd FileType python match OverLength /\%81v.\+/
+    autocmd FileType python set colorcolumn=80 
+augroup END
 
 """ global indentation setting
 set tabstop=4
@@ -96,6 +91,9 @@ au BufNewFile,BufRead *.py :
 """ clipboard setting
 set clipboard=unnamedplus
 
+""" fold setting
+set foldlevelstart=20 " open all folds when opening a file
+
 """ vim spell-checker setting
 " set spell spelllang=en_us
 
@@ -113,6 +111,16 @@ noremap <F9> :call asyncrun#quickfix_toggle(8)<cr>
 tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 nnoremap <C-s> :SearchNotes 
+" nnoremap <Space> za
+
+"" use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+"" unset the 'last search pattern' register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
 function! s:compile_and_run()
     exec 'w'
@@ -158,8 +166,12 @@ let g:ycm_python_binary_path = '/usr/local/bin/python3'
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 "let g:loaded_youcompleteme = 1
+"nnoremap <leader>g :YcmCompleter GoTo<CR>
+"nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
+"nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>doc :YcmCompleter GetDoc<CR>
 
-" this is for jedi-vim's argument completion
+"" jedi setting
 let g:jedi#show_call_signatures_delay = 0
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_on_dot = 0
@@ -179,19 +191,8 @@ let g:jedi#goto_definitions_command = "<leader>pd"
 let g:jedi#documentation_command = "<leader>pk"
 let g:jedi#usages_command = "<leader>pu"
 let g:jedi#rename_command = "<leader>pr"
-
-" let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
-
-nnoremap <leader>g :YcmCompleter GoTo<CR>
-nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
-nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>doc :YcmCompleter GetDoc<CR>
-
-"" jedi setting
 "autocmd FileType python setlocal completeopt-=preview
-"let g:jedi#completions_enabled = 0
 "let g:pymode_rope = 0
-"let g:jedi#popup_on_dot = 0
 "let g:jedi#auto_vim_configuration = 0
 
 
