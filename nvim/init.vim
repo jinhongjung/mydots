@@ -171,17 +171,12 @@ let g:ycm_server_log_level = 'debug'
 "nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 "nnoremap <leader>doc :YcmCompleter GetDoc<CR>
 
-"" jedi setting
+""" jedi setting
 let g:jedi#show_call_signatures_delay = 0
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 0
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#server_timeout = 100
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
-"let g:deoplete#sources#jedi#debug_server = 1
 let g:jedi#completions_command = ""
 let g:jedi#show_call_signatures = "1"
 let g:jedi#max_doc_height = 20
@@ -191,6 +186,13 @@ let g:jedi#goto_definitions_command = "<leader>pd"
 let g:jedi#documentation_command = "<leader>pk"
 let g:jedi#usages_command = "<leader>pu"
 let g:jedi#rename_command = "<leader>pr"
+
+""" deoplete setting
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#server_timeout = 100
+let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
+"let g:deoplete#sources#jedi#debug_server = 1
 "autocmd FileType python setlocal completeopt-=preview
 "let g:pymode_rope = 0
 "let g:jedi#auto_vim_configuration = 0
