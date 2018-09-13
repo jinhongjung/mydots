@@ -7,8 +7,10 @@ mkdir ~/.config/nvim
 #####################################
 
 echo "[neovim] start setting neovim configuration"
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
 if [ ! -d ~/.config ]; then
     mkdir ~/.config

@@ -173,13 +173,14 @@ tmux_conf_theme_window_status_last_attr='none'
 #     - #{username_ssh}
 #     
 #tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
-tmux_conf_theme_status_left='  #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
+#tmux_conf_theme_status_left='  #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
+tmux_conf_theme_status_left='  #S '
 #tmux_conf_theme_status_left='  #S | ↑#(tmux-mem-cpu-load) '
 #tmux_conf_theme_status_right='#{prefix}#{pairing} #(tmux-mem-cpu-load) | #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 
-#tmux_conf_theme_status_right='#{prefix}#{pairing} #(tmux-mem-cpu-load) | %R , %d %b | #{username}#{root} |  #{hostname} | 
-##{?battery_status, #{battery_status},}#{?battery_percentage, #{battery_percentage},}'
-tmux_conf_theme_status_right='#{prefix}#{pairing} | %R , %d %b | #{username}#{root} |  #{hostname} | #{?battery_status, #{battery_status},}#{?battery_percentage, #{battery_percentage},}'
+#tmux_conf_theme_status_right='#{prefix}#{pairing} #(tmux-mem-cpu-load) | %R , %d %b | #{username}#{root} |  #{hostname} | ##{?battery_status, #{battery_status},}#{?battery_percentage, #{battery_percentage},}'
+
+tmux_conf_theme_status_right='#{prefix}#{pairing}  #(tmux-mem-cpu-load --averages-count 0) | %R , %d %b | #{username}#{root} |  #{hostname} | #{?battery_status, #{battery_status},}#{?battery_percentage, #{battery_percentage},}'
 
 # status left style
 #tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
@@ -278,8 +279,8 @@ tmux_conf_copy_to_os_clipboard=false
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
-#set -g status-keys vi
-#set -g mode-keys vi
+set -g status-keys vi
+set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2
@@ -290,5 +291,12 @@ bind C-a send-prefix
 
 # move status line to top
 #set -g status-position top
+
+# custom key bindings
+bind-key -n S-Left swap-window -t -1
+bind-key -n S-Right swap-window -t +1
+
+
+
 #
 #

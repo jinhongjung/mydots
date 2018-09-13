@@ -69,6 +69,19 @@ let g:deoplete#sources#jedi#show_docstring = 1
 let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
 ```
 
+#### Notes on vimtex (with neovim)
+* Install https://github.com/mhinz/neovim-remote
+
+* Add the following in your `~/.bash_profile`
+```bash
+export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
+```
+
+* Go to Preference-Sync in your Skim
+    - Add `nvr` (Command)
+    - Add the following argument (Arguments)
+> -c %line "%file"
+
 
 ### Plugin shortcuts
 #### nerdtree
