@@ -9,3 +9,6 @@ install-tmux:
 
 install-shell:
 	bash bin/install_shell.sh
+
+install-zsh:
+	bash bin/install_zsh.sh
