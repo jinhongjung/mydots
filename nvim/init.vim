@@ -165,18 +165,25 @@ au BufRead * try | execute "compiler ".&filetype | catch /./ | endtry
 inoremap jk <ESC>
 let mapleader=" "
 let maplocalleader=" "
+
+" function key map
 nmap <F2> :so $MYVIMRC<CR>
 nmap <F3> :NERDTreeToggle <cr>
 nmap <F4> :Tagbar <cr>
 nnoremap <F5> :call <SID>compile_and_run()<CR><CR>
 map <F6> <C-P><C-\>w
 noremap <F9> :call asyncrun#quickfix_toggle(8)<CR>
-tnoremap <Esc> <C-\><C-n>
-nnoremap <silent> <leader>v :NERDTreeFind<CR>
+
+" shortcuts vim-note
 nnoremap <leader>s :SearchNotes<space>
 nnoremap <leader>n :Note<space>
-nnoremap <leader>w :StripWhitespace<CR>
-" nnoremap <Space> za
+
+" shortcuts for resizing a pane
+nnoremap <silent> <leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <leader>0 :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <leader>9 :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
 
 "" use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
@@ -184,8 +191,14 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-"" unset the 'last search pattern' register by hitting return
+" unset the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR><CR>
+
+" etc
+nnoremap <leader>w :StripWhitespace<CR>
+tnoremap <Esc> <C-\><C-n>
+nnoremap <silent> <leader>v :NERDTreeFind<CR>
+
 
 function! s:compile_and_run()
     exec 'w'
