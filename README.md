@@ -44,7 +44,7 @@ make install-nvim
     - Plug 'zchee/deoplete-jedi'
         - Plugins for supporting asynchronous autocompletion of python
 * pip3 install jedi
-* set up jedi-vim as shown in ~/.config/nvim/init.vim
+* set up jedi-vim as shown in nvim/init.vim
 ```vimrc
 """ jedi setting
 let g:jedi#show_call_signatures_delay = 0
@@ -82,28 +82,9 @@ export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
     - Add the following argument (Arguments)
 > -c %line "%file"
 
-
-### Plugin shortcuts
-#### nerdtree
-* `<leader>v` → find the current file on NerdTree (NerdTreeFind)
-
-#### vim-notes
-* `gf` → move the note on the current link
-* `:ShowTaggedNotes` → show tagged notes
-* `:edit note:something ` → edit a note whose title `something`
-* `<C-s` → search nodes for the following keywords 
-* `vim :RecentNotes` → show recently edited notes
-
-#### jedi-vim
-* `<leader>pk` → open a python document on the current function 
-* `<leader>pr` → rename a variable/function (refactor)
-* `<leader>pu` → show usages on the current function
-* `<leader>pd` → go to the definition
-    - If you want to go back, press `<C-o>`
-
-#### isort
-* `<leader>i` → automatically sort imports used in a python script
-
-
-#### vim-fugitive
-* https://www.reddit.com/r/vim/comments/21f4gm/best_workflow_when_using_fugitive/
+## Articles
+### vim
+* https://dev.to/pmihaylov/how-can-vim-make-you-a-better-developer-2c3i
+* http://rc3.org/2012/05/12/the-grammar-of-vim
+* https://yanpritzker.com/learn-to-speak-vim-verbs-nouns-and-modifiers-d7bfed1f6b2d
+* http://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
