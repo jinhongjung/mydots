@@ -11,4 +11,7 @@ install-shell:
 	bash bin/install_shell.sh
 
 install-zsh:
-	bash bin/install_zsh.sh
+	zsh bin/install_zsh.sh
+
+install-font:
+	bash bin/install_font.sh
