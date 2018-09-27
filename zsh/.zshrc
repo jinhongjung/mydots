@@ -126,12 +126,12 @@ export KEYTIMEOUT=1
 spaceship_vi_mode_enable
 
 # ls colors
-# export CLICOLOR=1
-# export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
-
-# ~/.dircolors/themefile
 eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
 
 # Aliases
 alias ls='gls --color=auto'
 alias ll='ls -al'
+
+# Path
+export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+
