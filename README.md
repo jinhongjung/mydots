@@ -11,14 +11,30 @@
 * `oh-my-zsh`: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 * `cmake`: brew install cmake
 * `ctags`: brew install ctags
+* `coreutils': brew install coreutils
+    - dircolors
 * `flake8`: pip3 install flake8
 * `pylint`: pip3 install pylint
+* `jedi`: pip3 install jedi
+* `neovim-remote`: pip3 install neovim-remote
 
 ## tmux
 ### Installation
 ```bash
 make install-tmux
 ```
+
+### How to edit configuration
+To edit tmux configuration, you need to modify `tmux/.tmux.conf.local`.
+The original tmux configuration files are from https://github.com/gpakosz/.tmux.
+
+## font
+### Installation
+```bash
+make install-font
+```
+* This will install powerline fonts on your system.
+* https://github.com/powerline/fonts
 
 ## zsh
 ### Installation
@@ -32,9 +48,6 @@ make install-zsh
 * zsh-syntax-highlighting
 * zsh-autosuggestions
 
-### How to edit configuration
-To edit tmux configuration, you need to modify `tmux/.tmux.conf.local`.
-The original tmux configuration files are from https://github.com/gpakosz/.tmux.
 
 ## neovim
 ### Installation
@@ -59,17 +72,21 @@ make install-nvim
 * set up jedi-vim as shown in nvim/init.vim
 
 #### Notes on vimtex (with neovim)
-* Install https://github.com/mhinz/neovim-remote
-
-* Add the following in your `~/.bash_profile`
-```bash
-export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
-```
-
+* Install skim
+    - https://skim-app.sourceforge.io/
+* Install neovim-remote
+    - https://github.com/mhinz/neovim-remote
+    - pip3 install neovim-remote
 * Go to Preference-Sync in your Skim
     - Add `nvr` (Command)
     - Add the following argument (Arguments)
 > -c %line "%file"
+
+
+## Karabiner
+* https://pqrs.org/osx/karabiner/
+* `caps_lock` -> `left_control` (Simple Modification)
+* Vi mode : left_control + hjkl (Complex Modification)
 
 ## Articles
 ### vim
