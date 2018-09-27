@@ -7,7 +7,8 @@ export ZSH="/Users/jinhong/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -18,6 +19,10 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# 256 colors terminal
+#export TERM="xterm-256color"
+export TERM=screen-256color
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -63,7 +68,12 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
+
+# disable default indicator for normal mode in vi-mode
+export RPS1="%{$reset_color%}"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,3 +108,30 @@ source $ZSH/oh-my-zsh.sh
 
 # vi key binding
 bindkey -v
+
+# Better searching in command mode
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+
+# Beginning search with arrow keys
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
+
+# enable vi mode in spaceship
+spaceship_vi_mode_enable
+
+# ls colors
+# export CLICOLOR=1
+# export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+
+# ~/.dircolors/themefile
+eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
+
+# Aliases
+alias ls='gls --color=auto'
+alias ll='ls -al'

@@ -20,6 +20,18 @@
 make install-tmux
 ```
 
+## zsh
+### Installation
+```bash
+make install-zsh
+```
+
+### zsh setup
+* theme: spaceship
+* vi-mode
+* zsh-syntax-highlighting
+* zsh-autosuggestions
+
 ### How to edit configuration
 To edit tmux configuration, you need to modify `tmux/.tmux.conf.local`.
 The original tmux configuration files are from https://github.com/gpakosz/.tmux.
@@ -45,29 +57,6 @@ make install-nvim
         - Plugins for supporting asynchronous autocompletion of python
 * pip3 install jedi
 * set up jedi-vim as shown in nvim/init.vim
-```vimrc
-""" jedi setting
-let g:jedi#show_call_signatures_delay = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_enabled = 0
-let g:jedi#completions_command = ""
-let g:jedi#show_call_signatures = "1"
-let g:jedi#max_doc_height = 20
-let g:jedi#auto_close_doc = 1
-let g:jedi#goto_assignments_command = "<leader>pa"
-let g:jedi#goto_definitions_command = "<leader>pd"
-let g:jedi#documentation_command = "<leader>pk"
-let g:jedi#usages_command = "<leader>pu"
-let g:jedi#rename_command = "<leader>pr"
-
-""" deoplete setting
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#server_timeout = 100
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
-```
 
 #### Notes on vimtex (with neovim)
 * Install https://github.com/mhinz/neovim-remote
@@ -88,3 +77,4 @@ export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 * http://rc3.org/2012/05/12/the-grammar-of-vim
 * https://yanpritzker.com/learn-to-speak-vim-verbs-nouns-and-modifiers-d7bfed1f6b2d
 * http://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
+* https://www.techrepublic.com/blog/linux-and-open-source/using-vi-key-bindings-in-bash-and-zsh/
