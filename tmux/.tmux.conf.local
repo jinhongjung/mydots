@@ -4,6 +4,7 @@
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
 # my setting : window
+set-option -g default-shell /bin/zsh
 set-option -g allow-rename off # disable renaming window name
 
 # -- navigation ----------------------------------------------------------------
