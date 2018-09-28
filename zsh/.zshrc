@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+export EDITOR='nvim'
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
@@ -125,6 +126,9 @@ export KEYTIMEOUT=1
 # enable vi mode in spaceship
 spaceship_vi_mode_enable
 
+# spaceship prompt order
+SPACESHIP_PROMPT_ORDER=(user host dir git exec_time line_sep jobs exit_code vi_mode char)
+
 # ls colors
 eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
 
@@ -134,4 +138,7 @@ alias ll='ls -al'
 
 # Path
 export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH="~/bin:${PATH}"
 
+# tmuxinator completion
+source ~/bin/tmuxinator.zsh
