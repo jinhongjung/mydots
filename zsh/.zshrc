@@ -142,3 +142,7 @@ export PATH="~/bin:${PATH}"
 
 # tmuxinator completion
 source ~/bin/tmuxinator.zsh
+
+# locale setting
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
