@@ -39,8 +39,10 @@ Plug 'airblade/vim-gitgutter'                   " git diff line by line
 " build/run plugins
 Plug 'neomake/neomake'
 Plug 'skywind3000/asyncrun.vim'                 " run something asynchronously
-"""""" commenters
+" commenters
 Plug 'scrooloose/nerdcommenter'                 " easy-commenting
+" undo tree visualizer
+Plug 'simnalamburt/vim-mundo'
 
 "" Plugins for editing and navigating
 Plug 'ntpeters/vim-better-whitespace'           " remove unnecessary whitespacessss
@@ -51,6 +53,7 @@ Plug 'xolox/vim-notes'                          " vim notes
 Plug 'xolox/vim-misc'                           " misc for other plugins
 
 "" Lab - Plugins for testing
+Plug 'itchyny/calendar.vim'
 Plug 'dsimidzija/vim-nerdtree-ignore'           " nerdtreeignore
 "Plug 'haya14busa/vim-gtrans'
 Plug 'vim-scripts/Google-Translate'
@@ -171,7 +174,9 @@ nmap <F2> :so $MYVIMRC<CR>
 nmap <F3> :NERDTreeToggle <cr>
 nmap <F4> :Tagbar <cr>
 nnoremap <F5> :call <SID>compile_and_run()<CR><CR>
+" ctrl-p on the word under the current cursor
 map <F6> <C-P><C-\>w
+nnoremap <F7> :MundoToggle<CR>
 noremap <F9> :call asyncrun#quickfix_toggle(8)<CR>
 
 " shortcuts vim-note
@@ -307,6 +312,7 @@ let g:NERDToggleCheckAllLines = 1
 
 """ airline setting
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme='afterglow'
 let g:airline_powerline_fonts = 0
 
@@ -542,3 +548,23 @@ let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 "" gtranslate setting
 let g:langpair="ko"
 let g:vtranslate="T"
+
+
+"" mundo setting
+set undofile
+set undodir=~/.vim/undo
+let g:mundo_width = 30
+" let g:mundo_preview_height = 40
+let g:mundo_right = 1
+
+
+"" buffer setting
+set hidden
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>bq :bp <BAR> bd #<CR>
+nmap <leader>bl :ls<CR>
+
+
+"" calendar setting
+let g:calendar_google_calendar = 1
