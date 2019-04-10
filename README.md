@@ -36,6 +36,8 @@ make install-font
 ```
 * This will install powerline fonts on your system.
 * https://github.com/powerline/fonts
+* http://nerdfonts.com/
+    - Currently, I am using FiraCode in my terminal.
 
 ## zsh
 ### Installation
@@ -48,6 +50,7 @@ make install-zsh
 * vi-mode
 * zsh-syntax-highlighting
 * zsh-autosuggestions
+* colorls - https://github.com/athityakumar/colorls
 
 
 ## neovim
@@ -96,3 +99,6 @@ make install-nvim
 * https://yanpritzker.com/learn-to-speak-vim-verbs-nouns-and-modifiers-d7bfed1f6b2d
 * http://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
 * https://www.techrepublic.com/blog/linux-and-open-source/using-vi-key-bindings-in-bash-and-zsh/
+
+### zsh
+* https://medium.com/@caulfieldOwen/youre-missing-out-on-a-better-mac-terminal-experience-d73647abf6d7

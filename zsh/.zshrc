@@ -128,13 +128,17 @@ spaceship_vi_mode_enable
 
 # spaceship prompt order
 SPACESHIP_PROMPT_ORDER=(user host dir git exec_time line_sep jobs exit_code vi_mode char)
+SPACESHIP_PROMPT_ADD_NEWLINE="true"
+SPACESHIP_CHAR_SYMBOL="\uf0e7"
+SPACESHIP_CHAR_PREFIX="\uf296"
+SPACESHIP_CHAR_SUFFIX=(" ")
+SPACESHIP_CHAR_COLOR_SUCCESS="yellow"
+SPACESHIP_PROMPT_DEFAULT_PREFIX="$USER"
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="true"
+SPACESHIP_USER_SHOW="true"
 
 # ls colors
-eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
-
-# Aliases
-alias ls='gls --color=auto'
-alias ll='ls -al'
+#eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
 
 # Path
 export PATH="/Applications/MATLAB_R2018b.app/bin:${PATH}"
@@ -147,3 +151,13 @@ source ~/bin/tmuxinator.zsh
 # locale setting
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# rbenv
+eval "$(rbenv init -)"
+
+# Aliases
+#alias ls='gls --color=auto'
+#alias ll='ls -al'
+alias ls='colorls --dark --sort-dirs --git-status'
+alias ll='colorls --dark --long --git-status'
+alias lt='colorls --tree --dark --git-status'
