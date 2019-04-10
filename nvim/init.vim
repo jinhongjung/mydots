@@ -1,6 +1,10 @@
 """"""""""""""""""""""""""""
 """" Basic setup
 """"""""""""""""""""""""""""
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 call plug#begin()
 
 "" Plugins for pythons
@@ -53,6 +57,7 @@ Plug 'xolox/vim-notes'                          " vim notes
 Plug 'xolox/vim-misc'                           " misc for other plugins
 
 "" Lab - Plugins for testing
+Plug 'daeyun/vim-matlab', { 'do': function('DoRemote') }
 Plug 'itchyny/calendar.vim'
 Plug 'dsimidzija/vim-nerdtree-ignore'           " nerdtreeignore
 "Plug 'haya14busa/vim-gtrans'
@@ -81,6 +86,8 @@ set number
 set relativenumber
 syntax on
 let python_highlight_all = 1
+
+autocmd BufNewFile,BufRead *.mex set syntax=mex
 
 
 """ for vim slow issues

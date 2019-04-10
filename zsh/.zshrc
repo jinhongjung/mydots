@@ -137,6 +137,7 @@ alias ls='gls --color=auto'
 alias ll='ls -al'
 
 # Path
+export PATH="/Applications/MATLAB_R2018b.app/bin:${PATH}"
 export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH="~/bin:${PATH}"
 

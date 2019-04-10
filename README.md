@@ -17,6 +17,7 @@
 * `pylint`: pip3 install pylint
 * `jedi`: pip3 install jedi
 * `neovim-remote`: pip3 install neovim-remote
+* `tmuxinator`: gem install tmuxinator
 
 ## tmux
 ### Installation

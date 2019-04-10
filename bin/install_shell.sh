@@ -6,7 +6,8 @@ cp shell/tmux-session ~/bin
 echo "[shell] end shell installation"
 
 echo "[ssh] start setting up ssh config"
-cp ssh/config ~/.ssh
+mkdir ~/.ssh
+cp ssh/config ~/.ssh/config
 echo "[ssh] end setting up ssh config"
 
 echo "[dircolors] start installing dircolors"
