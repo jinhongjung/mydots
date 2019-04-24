@@ -93,6 +93,9 @@ make install-nvim
 * Vi mode : left_control + hjkl (Complex Modification)
 
 ## Articles
+### Development Setting
+* https://subicura.com/2017/11/22/mac-os-development-environment-setup.html
+
 ### vim
 * https://dev.to/pmihaylov/how-can-vim-make-you-a-better-developer-2c3i
 * http://rc3.org/2012/05/12/the-grammar-of-vim
