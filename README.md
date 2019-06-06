@@ -18,6 +18,7 @@
 * `jedi`: pip3 install jedi
 * `neovim-remote`: pip3 install neovim-remote
 * `tmuxinator`: gem install tmuxinator
+* `glances`: brew install glances
 
 ## tmux
 ### Installation
